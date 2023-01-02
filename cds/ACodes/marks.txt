@@ -1,0 +1,46 @@
+markList=[]
+n=int(input("Enter the Number of Students: "))
+for i in range(n):
+    mark=int(input(f"Enter the marks of {i+1} Student :"))
+    markList.append(mark)
+print("List of marks of student is ",markList)
+
+#Average marks in class 
+sum=0
+for i in range(n):
+    sum=sum+int(markList[i])
+avg=sum/n
+print("Average marks of student is class are ",avg)
+
+#Absent Student 
+marklist=[23,34,45,None,34,67,8,None,0,0,23,None]
+count=0
+for mark in marklist:
+    if  mark==None:
+        count=count+1
+print("Absent Students in class are ",count)
+
+#highest in the list
+highest =0;
+for mark in markList:
+    if mark>highest:
+        highest=mark
+print("Highest Marks are ",highest)
+
+#Paper is of 100 marks so let allocated value to the lowest is 100
+lowest=100
+for mark in markList:
+    if mark<lowest:
+        lowest=mark
+print("Lowest marks are ",lowest)
+
+#For Freqeuncy 
+count={}
+for i in markList:
+    if i in count:
+        count[i]+=1
+    else:
+        count[i]=1
+print(count)
+print("Max Marks Freqeuncy in List is ",max(count))
+        

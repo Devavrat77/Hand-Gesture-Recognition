@@ -1,0 +1,34 @@
+def selectionsort(arr):
+    for i in range(len(arr)-1):
+        minpos=i
+        for j in range(i,len(arr)):
+            if arr[j]<arr[minpos]:
+                minpos=j
+        temp=arr[i]
+        arr[i]=arr[minpos]
+        arr[minpos]=temp
+    print (arr)
+    
+def bubblesort(arr):
+    n=len(arr)
+    for i in range(n-1,0,-1):
+        j=0
+        for j in range(i):
+            if arr[j+1]<arr[j]:
+                temp=arr[j]
+                arr[j]=arr[j+1]
+                arr[j+1]=temp
+    print(arr)
+        
+
+
+l1=int(input("ENTER NO OF STUDENTS:"))
+arr=[]
+for i in range(l1):
+    a=float(input("Enter percentage of Student"))
+    arr.append(a)
+    
+
+
+selectionsort(arr)
+bubblesort(arr)

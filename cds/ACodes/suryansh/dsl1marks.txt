@@ -1,0 +1,88 @@
+def average(listOfMarks):
+    sum=0
+    count=0
+    for i in range(len(listOfMarks)):
+        if listOfMarks[i]!=-1:
+            sum+=listOfMarks[i]
+            count+=1
+    avg=sum/count
+    print("Total Marks : ", sum)
+    print("Average Marks : {:.2f}".format(avg))
+
+# Function for Highest score in the test for the class
+def Maximum(listOfMarks):
+    for i in range(len(listOfMarks)):
+        if listOfMarks[i]!=-1:
+            Max=listOfMarks[0]
+            break
+    for i in range(1,len(listOfMarks)):
+        if listOfMarks[i]>Max:
+            Max=listOfMarks[i]
+    return(Max)
+
+# Function for Lowest score in the test for the class
+def Minimum(listOfMarks):
+    lowest=0
+    for i in range(len(listOfMarks)):
+        if listOfMarks[i]!=-1:
+            if listOfMarks[i]<lowest:
+                lowest=listOfMarks[i]
+    return lowest
+
+# Function for counting the number of students absent for the test
+def absentcount(listOfMarks):
+    count=0
+    for i in range(len(listOfMarks)):
+        if listOfMarks[i]==-1:
+            count+=1
+    return(count)
+
+# Function for displaying marks with highest frequency
+def maxFrequency(listOfMarks):
+    i=0
+    Max=0
+    print("Marks\t|\tFrequency")
+    for j in listOfMarks:
+        if j !=-1:
+            if (listOfMarks.index(j)==i):
+                print(j,"\t|\t",listOfMarks.count(j))
+                if listOfMarks.count(j)>Max:
+                    Max=listOfMarks.count(j)
+                    mark=j
+            i=i+1
+        else:
+            continue
+    return(mark,Max)
+
+
+marksinFDS=[]
+while True:
+    print("""
+    1. Add Student Marks
+    2. Total and Average Marks of the Class
+    3. Highest and Lowest Marks in the Class
+    4. Number of Students absent for the test
+    5. Marks with Highest Frequency
+    6. Exit
+    """)
+    ch=int(input("Enter your Choice:"))
+    if ch==1:
+        print("If student is absent enter '-1' !")
+        marks=int(input("Enter marks of student: "))
+        marksinFDS.append(marks)
+    elif ch==2:
+        average(marksinFDS)
+    elif ch==3:
+        print("Highest Score in Class : ", Maximum(marksinFDS))
+        print("Lowest Score in Class : ", Minimum(marksinFDS))
+    elif ch==4:
+        print("Number of Students absent in the test : ", 
+        absentcount(marksinFDS))
+    elif ch==5:
+        mark,fr = maxFrequency(marksinFDS)
+        print("Highest frequency is of marks {} that is {} ".format(mark,fr))
+    elif ch==6:
+        exit()
+    else:
+        print('\n==================\nEnter valid input!\n==================')
+        continue

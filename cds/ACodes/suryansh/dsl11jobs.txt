@@ -1,0 +1,80 @@
+
+
+#include <iostream>
+#include <queue>
+#include <string>
+#define queue_size 3
+using namespace std;
+
+void displayQueue(queue<string> jobs)
+{
+    // int i = 1;
+    // while (!jobs.empty())
+    // {
+    //     // jobs_temp.push(jobs.front());
+    //     cout << i << ") " << jobs.front() << endl;
+    //     jobs.pop();
+    //     i++;
+    // }
+
+    if (jobs.empty())
+    {
+        cout << endl;
+        return;
+    }
+
+    cout << jobs.front() << "\t";
+    jobs.pop();
+
+    displayQueue(jobs);
+}
+
+int main()
+{
+    queue<string> jobs;
+    int opt;
+    string job_name;
+
+    // driver Menu
+    int flag = 1;
+    while (flag == 1)
+    {
+        cout << "\n1. Add Job\n2. Delete job\n3. Display Jobs\n4. Exit" << endl
+             << "Please select option number: ";
+        cin >> opt;
+
+        switch (opt)
+        {
+        case 1:
+            if (jobs.size() < queue_size)
+            {
+                cout << "Enter new Job Name: ";
+                cin >> job_name;
+                jobs.push(job_name);
+                cout << "Following job added:  " << job_name << endl;
+                break;
+            }
+            else
+            {
+                cout << "\nQueue Overflow !!!\n\n";
+                break;
+            }
+
+        case 2:
+            cout << "Following job is deleted:  " << jobs.front() << endl;
+            jobs.pop();
+            break;
+
+        case 3:
+            cout << "Elemnts of queue are: \n";
+            displayQueue(jobs);
+            break;
+
+        case 4:
+            flag = 0;
+            cout << "\nCode by Suryansh Sarawat S190244454\n\n";
+            break;
+        default:
+            break;
+        }
+    }

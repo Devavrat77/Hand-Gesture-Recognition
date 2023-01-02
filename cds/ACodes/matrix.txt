@@ -1,0 +1,56 @@
+#print the matrix
+def matrix(m,n):
+    o=[]
+    for i in range(m):
+        row=[]
+        for j in range(n):
+            num=int(input(f"Enter the number in {i+1} {j+1} :"))
+            row.append(num)
+        o.append(row)
+    return o    
+def sum(A,B):
+    o=[]
+    for i in range(len(A)):
+        row=[]
+        for j in range(len(A[0])):
+            sum=A[i][j]+B[i][j]
+            row.append(sum)
+        o.append(row)
+    for i in range(len(o)):
+        for j  in range(len(o[0])):
+            print(o[i][j],end=" ")
+        print()
+
+
+def sub(A, B):
+    o = []
+    for i in range(len(A)):
+        row = []
+        for j in range(len(A[0])):
+            sub = A[i][j]-B[i][j]
+            row.append(sub)
+        o.append(row)
+    for i in range(len(o)):
+        for j in range(len(o[0])):
+            print(o[i][j], end=" ")
+        print()
+def multiply(A,B):
+   result=[[0,0,0],[0,0,0],[0,0,0]]
+   for i in range(len(A)):
+       for j in range(len(A[0])):
+           for k in range(len(B)):
+               result[i][j]+=A[i][k]*B[k][j]
+               
+   print("Multiplication of Matrix is")
+   for r in result:
+       print(r)
+
+def transpose(A):
+    result=[[0,0,0],
+            [0,0,0],
+            [0,0,0]]
+    for i in range(len(A)):
+        for j in range(len(A[0])):
+            result[j][i]=A[i][j]
+    for r in range(len(result)):
+        print(r)

@@ -1,0 +1,28 @@
+# longest string in the list
+def longestString(l1):
+    length =0
+    result=0
+    for i in l1:
+        if length<len(i):
+            length=len(i)
+            result=i
+    print(result)    
+def freqeuncyInString(a):
+    dic={}
+    for b in a:
+        if b in dic:
+            dic[b]+=1
+        else:
+            dic[b]=1
+    print(dic)
+
+def palindrome(str):
+    a=str[::-1]
+    if a==str:
+        print("It is a palindrome")
+    else:
+        print("It is not a palindrome")
+#substring
+def printIndexOfSubstring(str,substring,start):
+    index=str.find(substring,start)
+    print("First occurance of substring from ",start,"is",index)
